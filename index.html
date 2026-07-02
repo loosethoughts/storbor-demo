@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Storbor — Live Demo</title>
+    <meta name="description" content="Try Storbor — storage space by the hour, from people next door. A live demo connected to test payments." />
+    <meta name="theme-color" content="#0858F0" />
+    <meta property="og:title" content="Storbor — Live Demo" />
+    <meta property="og:description" content="Take Storbor for a spin: find storage near you or list your space. Demo mode, test payments only." />
+    <meta property="og:image" content="https://storbor.com/storbor-wordmark.png" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="noindex" />
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <link rel="preload" href="/_expo/static/css/global-f87c9e1419fa98b4c566183153b2860e.css" as="style">
+<link rel="stylesheet" href="/_expo/static/css/global-f87c9e1419fa98b4c566183153b2860e.css"><link rel="preload" href="/_expo/static/css/leaflet-df687fead8c4838a4e6b8bcb2f176a0e.css" as="style">
+<link rel="stylesheet" href="/_expo/static/css/leaflet-df687fead8c4838a4e6b8bcb2f176a0e.css"><link rel="icon" href="/favicon.ico" /></head>
+
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/_expo/static/js/web/entry-0a67a2b6ca9e2afc3d58a80fb48c419b.js" defer></script>
+
+  <!-- Storbor demo overlay (not part of the app bundle) -->
+  <style>
+    #sb-demo-badge{position:fixed;top:8px;right:8px;z-index:99998;background:rgba(8,88,240,.92);color:#fff;
+      font:700 11px/1 -apple-system,Segoe UI,Roboto,sans-serif;padding:5px 9px;border-radius:999px;
+      letter-spacing:.4px;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+    #sb-demo-ovl{position:fixed;inset:0;z-index:99999;background:rgba(10,15,25,.55);display:flex;
+      align-items:center;justify-content:center;padding:18px;font-family:-apple-system,Segoe UI,Roboto,sans-serif}
+    #sb-demo-card{background:#fff;max-width:380px;width:100%;border-radius:18px;overflow:hidden;
+      box-shadow:0 18px 50px rgba(0,0,0,.3)}
+    #sb-demo-card .h{background:#0858F0;color:#fff;padding:20px 22px;font-size:19px;font-weight:800}
+    #sb-demo-card .b{padding:20px 22px;color:#14181F;font-size:14.5px;line-height:1.55}
+    #sb-demo-card .cred{background:#F8EDE2;border:1px solid #ecdfce;border-radius:12px;padding:11px 13px;margin:12px 0;font-size:14px}
+    #sb-demo-card .cred code{font-weight:700;color:#0858F0}
+    #sb-demo-card button{margin-top:16px;width:100%;background:#0858F0;color:#fff;border:0;border-radius:999px;
+      padding:13px;font-size:15px;font-weight:800;cursor:pointer}
+  </style>
+  <div id="sb-demo-badge">DEMO · TEST MODE</div>
+  <script>
+    (function(){
+      if (localStorage.getItem('sb_demo_seen')) return;
+      var o=document.createElement('div'); o.id='sb-demo-ovl';
+      o.innerHTML='<div id="sb-demo-card">'
+        +'<div class="h">Welcome to the Storbor demo 🧪</div>'
+        +'<div class="b">This is a live trial of the Storbor app. Payments run in <strong>test mode</strong> — nothing is real and no money moves.'
+        +'<div class="cred">Skip sign-up — log in with:<br>Email <code>demo@storbor.com</code><br>Password <code>StorborDemo1</code></div>'
+        +'Booking something? Pay with test card <strong>4242 4242 4242 4242</strong>, any future expiry, any CVC.'
+        +'<button id="sb-demo-go">Start exploring</button></div>';
+      document.body.appendChild(o);
+      document.getElementById('sb-demo-go').onclick=function(){
+        localStorage.setItem('sb_demo_seen','1'); o.remove();
+      };
+    })();
+  </script>
+</body>
+</html>
